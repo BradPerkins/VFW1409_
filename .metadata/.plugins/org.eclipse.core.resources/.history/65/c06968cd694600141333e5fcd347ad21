@@ -1,0 +1,49 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+var comicPics = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "dcImage");
+var picsList = comicPics.getDirectoryListing();
+
+//button stuff v
+nextView = Ti.UI.createView({
+	backgroundColor: "white",
+	height: 50,
+	bottom: 0,
+});
+
+nextLabel = Ti.UI.createLabel({
+	text: "Next Image",
+	width: "100%",
+	color: "black",
+	font: {fontSize: 20, fontWeight: "bold", fontFamily: "Times New Roman"},
+	textAlign: "center"
+});
+
+nextButton = Ti.UI.createButton({
+	backgroundColor: "white",
+	height: 50,
+	width: "100%",
+	bottom: 0,
+});
+
+
+nextView.add(nextLabel, nextButton);
+// ^
+var loadPics = function(){
+	for(var i=0, j=comicPics.length; i<j; i++){
+		var image = Ti.UI.createImageView({
+			image: "dcImage/" + comicPics[i],
+			top: 20,
+			left: 10,
+			right: 10,
+			width: pWidth,
+			hieght: pHeight,
+		});
+		
+		galleryWin.add(image);
+	}
+};
+
+nextView.addEventListener("click", loadPics);
+galleryWin.add(nextView);
+galleryWin.open();
+

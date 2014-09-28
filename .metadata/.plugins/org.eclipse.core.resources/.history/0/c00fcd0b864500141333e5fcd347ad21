@@ -1,0 +1,86 @@
+
+
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "gray",
+	title: "Main Window",
+	font: {},
+});
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin,
+});
+
+//Gallery Button
+var gallery = Ti.UI.createButton({
+	backgroundColor: "3f9fd1",
+	borderColor: "white",
+	borderWidth: 1,
+	top: 100,
+	left: 0,
+	right: 0,
+	height: 100,
+});
+
+var galleryText = Ti.UI.createLabel({
+	color: "black",
+	font: {fontSize: 50, fontFamily: "Times New Roman"},
+	textAlign: "center",
+	text: "Gallery"
+});
+
+gallery.addEventListener('click', galleryWin)
+gallery.add(galleryText);
+
+//Data Button
+var data = Ti.UI.createButton({
+	backgroundColor: "black",
+	borderColor: "white",
+	borderWidth: 1,
+	top: 200,
+	left: 0,
+	right: 0,
+	height: 100,
+});
+
+var dataText = Ti.UI.createLabel({
+	color: "white",
+	font: {fontSize: 50, fontFamily: "Times New Roman"},
+	textAlign: "center",
+	text: "Data"
+});
+
+data.add(dataText);
+
+//Custom Button
+var custom = Ti.UI.createButton({
+	backgroundColor: "0068b1",
+	borderColor: "white",
+	borderWidth: 1,
+	top: 300,
+	left: 0,
+	right: 0,
+	height: 100,
+});
+
+var customText = Ti.UI.createLabel({
+	color: "black",
+	font: {fontSize: 50, fontFamily: "Times New Roman"},
+	textAlign: "center",
+	text: "Custom"
+});
+
+custom.add(customText);
+
+
+var border = Ti.UI.createView({
+	backgroundColor: "black",
+	height: 1,
+	top: 0,
+});
+
+
+galleryFile = require("gallery");
+
+mainWin.add(border, gallery, data, custom);
+navWin.open();
+

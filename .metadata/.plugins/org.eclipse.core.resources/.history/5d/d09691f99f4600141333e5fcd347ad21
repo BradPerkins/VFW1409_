@@ -1,0 +1,51 @@
+
+
+Ti.UI.backgroundColor = 'white';
+var customWin = Ti.UI.createWindow({
+  exitOnClose: true,
+  layout: 'vertical'
+});
+
+var customNavWin = Ti.UI.iOS.createNavigationWindow({
+	window: customWin
+}) ;
+
+var results = Ti.UI.createView({
+	backgroundColor: "#3f9fd1",
+	bottom: 10,
+	left: 10,
+	right: 10,
+	top: 10,
+});
+
+var resultsImage = Ti.UI.createImageView({
+	image: results,
+	bottom: 10,
+	left: 10,
+	right: 10,
+	top: 10,
+});
+
+results.add(resultsImage);
+
+var picker = Ti.UI.createPicker({
+  top:0
+});
+
+var data = [];
+data[0]=Ti.UI.createPickerRow({title:'Batman', img: "logos/batman-logo.jpg"});
+data[1]=Ti.UI.createPickerRow({title:'Superman'});
+data[2]=Ti.UI.createPickerRow({title:'Green Lantern'});
+data[3]=Ti.UI.createPickerRow({title:'Flash'});
+
+picker.add(data);
+picker.selectionIndicator = true;
+
+customWin.add(picker, results);
+customNavWin.open();
+picker.addEventListener("change", function(e){
+	results.img = e.row.image;
+});
+
+// must be after picker has been displayed
+picker.setSelectedRow(0, 2, false); // select Mangos

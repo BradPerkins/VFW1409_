@@ -1,0 +1,20 @@
+var customWin = Ti.UI.createWindow({
+	backgroundColor: "white",
+});
+
+customImage = Ti.UI.createImageView({
+	image: "dclogo.jpg"
+});
+
+var heroLogo = Ti.UI.createSwitch({
+	value: true,
+	bottom: 10,
+});
+
+customWin.add(heroLogo, customImage);
+
+heroLogo.addEventListener("change", function(e){
+	if(heroLogo.value === true){
+		customImage.image = "logos/batman-logo.jpg",
+	}
+});

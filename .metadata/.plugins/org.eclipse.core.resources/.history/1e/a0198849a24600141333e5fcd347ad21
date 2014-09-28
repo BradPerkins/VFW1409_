@@ -1,0 +1,31 @@
+var customWin = Ti.UI.createWindow({
+	backgroundColor: "white",
+});
+
+customImage = Ti.UI.createImageView({
+	image: "dclogo.jpg"
+});
+
+var heroLogo = Ti.UI.createSwitch({
+	value: true,
+	bottom: 10,
+});
+
+
+
+heroLogo.addEventListener("change", function(e){
+	if(heroLogo.value === true){
+		customImage.image = "logos/batman-logo.jpg";
+	}
+	else{
+		customImage.image = "logos/Flash-logo.jpg";
+	}
+});
+
+var back = Ti.UI.createButtonBar({
+	text: "back",
+	top: 10,
+	height: 20
+});
+customWin.add(heroLogo, customImage, back);
+customWin.open();

@@ -1,0 +1,20 @@
+var customWin = Ti.UI.createWindow({
+	backgroundColor: "white",
+});
+
+customView = Ti.UI.createImageView({
+	image: "dclogo.jpg"
+});
+
+var heroLogo = Ti.UI.createSwitch({
+	value: true,
+	bottom: 10,
+});
+
+customWin.add(heroLogo);
+
+heroLogo.addEventListener("change", function(e){
+	if(heroLogo.value === true){
+		custom
+	}
+});

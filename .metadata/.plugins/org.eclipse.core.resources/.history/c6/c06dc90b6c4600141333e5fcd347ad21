@@ -1,0 +1,64 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+var comicPics = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "dcPics");
+var picsList = comicPics.getDirectoryListing();
+
+//button stuff v
+nextView = Ti.UI.createView({
+	backgroundColor: "white",
+	height: 50,
+	bottom: 0,
+});
+
+nextLabel = Ti.UI.createLabel({
+	text: "Next Image",
+	width: "100%",
+	color: "black",
+	font: {fontSize: 20, fontWeight: "bold", fontFamily: "Times New Roman"},
+	textAlign: "center"
+});
+
+nextButton = Ti.UI.createButton({
+	backgroundColor: "white",
+	height: 50,
+	width: "100%",
+	bottom: 0,
+});
+
+
+// ^
+
+var loadPics = function(){
+	for(var i=0; i<comicPics.length; i++){
+		var image = Ti.UI.createImageView({
+			image: "dcPics/" + comicPics[i],
+			top: 20,
+			left: 10,
+			right: 10,
+			width: pWidth,
+			hieght: pHeight,
+		});
+		
+		galleryWin.add(image);
+	}
+};
+/*
+var loadPics = function(){
+	var newImage = Ti.UI.createImageView({
+		image: "dclogo.jpg",
+		width: pWidth,
+		hieght: pHeight,
+	});
+	
+	galleryWin.add(newImage);
+	
+};
+*/
+nextButton.add(nextLabel);
+nextView.add(nextButton);
+
+nextButton.addEventListener("click", loadPics);
+
+galleryWin.add(nextView);
+galleryWin.open();
+

@@ -1,0 +1,144 @@
+
+
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "gray",
+	title: "Main Window",
+	font: {},
+});
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin,
+});
+
+//Gallery Button
+var gallery = Ti.UI.createView({
+	backgroundColor: "3f9fd1",
+	borderColor: "white",
+	borderWidth: 1,
+	top: 100,
+	left: 0,
+	right: 0,
+	height: 100,
+});
+
+var galleryText = Ti.UI.createLabel({
+	color: "black",
+	font: {fontSize: 50, fontFamily: "Times New Roman"},
+	textAlign: "center",
+	text: "Gallery"
+});
+
+gallery.addEventListener('click', function(){
+    navWin.openWindow(gallery, {animated:true});
+});
+
+gallery.add(galleryText);
+
+//Data Button
+var data = Ti.UI.createView({
+	backgroundColor: "black",
+	borderColor: "white",
+	borderWidth: 1,
+	top: 200,
+	left: 0,
+	right: 0,
+	height: 100,
+});
+
+var dataText = Ti.UI.createLabel({
+	color: "white",
+	font: {fontSize: 50, fontFamily: "Times New Roman"},
+	textAlign: "center",
+	text: "Data"
+});
+
+data.add(dataText);
+
+//Custom Button
+var custom = Ti.UI.createView({
+	backgroundColor: "0068b1",
+	borderColor: "white",
+	borderWidth: 1,
+	top: 300,
+	left: 0,
+	right: 0,
+	height: 100,
+});
+
+var customText = Ti.UI.createLabel({
+	color: "black",
+	font: {fontSize: 50, fontFamily: "Times New Roman"},
+	textAlign: "center",
+	text: "Custom"
+});
+
+custom.add(customText);
+
+
+var border = Ti.UI.createView({
+	backgroundColor: "black",
+	height: 1,
+	top: 0,
+});
+
+
+galleryFile = require("gallery");
+
+mainWin.add(border, gallery, data, custom, button);
+navWin.open();
+
+
+
+/*
+//Main Window
+var mainWin = Titanium.UI.createWindow({
+    backgroundColor: "Gray",
+    title: "Main Window"
+});
+
+var navWin = Titanium.UI.iOS.createNavigationWindow({
+   window: mainWin
+});
+
+//Gallery Window
+var gallery = Titanium.UI.createWindow({
+    backgroundColor: "gray",
+    title: "Gallery"
+});
+
+var navWinGallery = Titanium.UI.iOS.createNavigationWindow({
+   window: gallery
+});
+
+var galleryButton = Titanium.UI.createButton({
+    title: "Open Gallery"
+});
+
+galleryButton.addEventListener('click', function(){
+    navWin.openWindow(gallery, {animated:true});
+});
+
+
+var galleryView = Ti.UI.createView({
+	bottom: 0,
+    height: 50,
+    backgroundColor: "blue",
+});
+
+var backButton = Titanium.UI.createButton({
+    title: "Close Gallery"
+});
+
+var cancelButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.CANCEL });
+
+backButton.addEventListener('click', function(){
+    navWin.closeWindow(gallery, {animated:false}); //gallery.close() will also work!!
+});
+
+
+galleryView.add(cancelButton);
+mainWin.add(galleryButton);
+gallery.add(galleryButton, galleryView);
+navWin.open();
+//navWinGallery.open();
+*/
